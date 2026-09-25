@@ -1,0 +1,3951 @@
+
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome We School</title>
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#050816;
+    color:#fff;
+    font-family:Arial,Tahoma,"Segoe UI",sans-serif;
+    position:relative;
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-100px;
+    z-index:-5;
+
+    background-image:
+        linear-gradient(
+            rgba(0,255,255,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,255,255,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    animation:gridMove 12s linear infinite;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+}
+
+
+body::after{
+    content:"";
+    position:fixed;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:-6;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,255,.15) 0%,
+            rgba(0,120,255,.10) 25%,
+            rgba(80,0,255,.07) 45%,
+            transparent 70%
+        );
+
+    filter:blur(15px);
+
+    animation:
+        mainGlow 7s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   BACKGROUND LIGHTS
+========================================================= */
+
+.background-light{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:-7;
+    filter:blur(50px);
+}
+
+.light-one{
+    width:300px;
+    height:300px;
+    top:-100px;
+    right:-100px;
+    background:rgba(0,255,255,.14);
+    animation:floatLight 8s ease-in-out infinite;
+}
+
+.light-two{
+    width:350px;
+    height:350px;
+    bottom:-150px;
+    left:-100px;
+    background:rgba(100,0,255,.15);
+    animation:floatLight 10s ease-in-out infinite reverse;
+}
+
+.light-three{
+    width:220px;
+    height:220px;
+    top:45%;
+    left:-100px;
+    background:rgba(0,120,255,.10);
+    animation:floatLight 12s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-3;
+}
+
+.particles span{
+    position:absolute;
+    display:block;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#00ffff;
+
+    box-shadow:
+        0 0 8px #00ffff,
+        0 0 18px #00ffff;
+
+    animation:particleFloat linear infinite;
+}
+
+.particles span:nth-child(1){
+    left:8%;
+    animation-duration:12s;
+    animation-delay:-3s;
+}
+
+.particles span:nth-child(2){
+    left:18%;
+    animation-duration:18s;
+    animation-delay:-8s;
+}
+
+.particles span:nth-child(3){
+    left:29%;
+    animation-duration:14s;
+    animation-delay:-2s;
+}
+
+.particles span:nth-child(4){
+    left:41%;
+    animation-duration:20s;
+    animation-delay:-12s;
+}
+
+.particles span:nth-child(5){
+    left:53%;
+    animation-duration:16s;
+    animation-delay:-5s;
+}
+
+.particles span:nth-child(6){
+    left:64%;
+    animation-duration:13s;
+    animation-delay:-9s;
+}
+
+.particles span:nth-child(7){
+    left:74%;
+    animation-duration:19s;
+    animation-delay:-4s;
+}
+
+.particles span:nth-child(8){
+    left:84%;
+    animation-duration:15s;
+    animation-delay:-11s;
+}
+
+.particles span:nth-child(9){
+    left:91%;
+    animation-duration:22s;
+    animation-delay:-7s;
+}
+
+.particles span:nth-child(10){
+    left:96%;
+    animation-duration:17s;
+    animation-delay:-13s;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes gridMove{
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(50px,50px);
+    }
+}
+
+@keyframes mainGlow{
+    from{
+        transform:translate(-50%,-50%) scale(.9);
+        opacity:.6;
+    }
+
+    to{
+        transform:translate(-50%,-50%) scale(1.15);
+        opacity:1;
+    }
+}
+
+@keyframes floatLight{
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(50px,-40px);
+    }
+}
+
+@keyframes particleFloat{
+    0%{
+        top:110%;
+        opacity:0;
+        transform:scale(.5);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        top:-10%;
+        opacity:0;
+        transform:scale(1.5);
+    }
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-120%);
+    }
+
+    100%{
+        transform:translateX(120%);
+    }
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:.8;
+    }
+
+    50%{
+        transform:scale(1.05);
+        opacity:1;
+    }
+}
+
+@keyframes textShine{
+    to{
+        background-position:300% center;
+    }
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav{
+    width:100%;
+
+    padding:18px 6%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    background:rgba(5,8,22,.65);
+
+    border-bottom:
+        1px solid rgba(0,255,255,.15);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,.05);
+
+    position:sticky;
+    top:0;
+
+    z-index:100;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+
+    color:#00ffff;
+
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff,
+        0 0 30px rgba(0,255,255,.7);
+
+    letter-spacing:1px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.lang-btn{
+    border:
+        1px solid rgba(0,255,255,.3);
+
+    background:
+        rgba(0,255,255,.05);
+
+    color:#fff;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.lang-btn:hover,
+.lang-btn.active{
+    background:#00ffff;
+    color:#001014;
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px rgba(0,255,255,.4);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+.hero{
+    padding:75px 0 45px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(35px,7vw,70px);
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ffff,
+            #ffffff,
+            #7c5cff,
+            #00ffff
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        textShine 5s linear infinite;
+}
+
+.hero p{
+    margin-top:15px;
+
+    color:#aab4d6;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.02)
+        );
+
+    border:
+        1px solid rgba(0,255,255,.15);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 20px rgba(0,255,255,.04),
+        inset 0 0 25px rgba(0,255,255,.02);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    transition:.35s;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    top:-100px;
+    right:-100px;
+
+    background:
+        rgba(0,255,255,.08);
+
+    border-radius:50%;
+
+    filter:blur(35px);
+}
+
+.card:hover{
+    border-color:
+        rgba(0,255,255,.4);
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,.10),
+        inset 0 0 30px rgba(0,255,255,.04);
+
+    transform:translateY(-2px);
+}
+
+.card h2{
+    margin-bottom:20px;
+
+    color:#00ffff;
+
+    text-shadow:
+        0 0 8px rgba(0,255,255,.5);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.field label{
+    color:#b8c3e5;
+    font-size:14px;
+}
+
+.field input,
+.field select{
+    width:100%;
+
+    padding:13px 14px;
+
+    border-radius:12px;
+
+    border:
+        1px solid rgba(0,255,255,.2);
+
+    background:
+        rgba(0,0,0,.25);
+
+    color:#fff;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#00ffff;
+
+    box-shadow:
+        0 0 10px rgba(0,255,255,.2),
+        inset 0 0 10px rgba(0,255,255,.03);
+}
+
+.field input::placeholder{
+    color:#657193;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+========================================================= */
+
+.main-btn{
+    width:100%;
+
+    margin-top:22px;
+
+    padding:16px 20px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:#001014;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ffff,
+            #00bfff
+        );
+
+    font-size:17px;
+    font-weight:900;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+        0 0 12px rgba(0,255,255,.5),
+        0 0 30px rgba(0,255,255,.15);
+
+    transition:.3s;
+}
+
+.main-btn::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    animation:
+        shine 3s infinite;
+}
+
+.main-btn:hover{
+    transform:
+        translateY(-2px)
+        scale(1.01);
+
+    box-shadow:
+        0 0 20px #00ffff,
+        0 0 50px rgba(0,255,255,.3);
+}
+
+.main-btn:active{
+    transform:scale(.98);
+}
+
+
+/* =========================================================
+   SUBJECTS
+========================================================= */
+
+.subject-input-area{
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+    flex-wrap:wrap;
+}
+
+.subject-input{
+    flex:1;
+
+    min-width:200px;
+
+    padding:13px 14px;
+
+    border-radius:12px;
+
+    border:
+        1px solid rgba(0,255,255,.2);
+
+    background:
+        rgba(0,0,0,.25);
+
+    color:#fff;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.subject-input:focus{
+    border-color:#00ffff;
+
+    box-shadow:
+        0 0 12px rgba(0,255,255,.15);
+}
+
+.subject-input::placeholder{
+    color:#657193;
+}
+
+.add-subject-btn{
+    padding:13px 20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#00ffff;
+
+    color:#001014;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,.3);
+
+    transition:.3s;
+}
+
+.add-subject-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,.5);
+}
+
+.subjects{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+}
+
+.subject{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.subject:hover{
+    border-color:
+        rgba(0,255,255,.3);
+
+    background:
+        rgba(0,255,255,.04);
+}
+
+.subject input{
+    accent-color:#00ffff;
+}
+
+.subject span{
+    color:#dce3ff;
+
+    flex:1;
+}
+
+.delete-subject{
+    border:none;
+
+    background:transparent;
+
+    color:#ff5c7a;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    padding:4px;
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+#result{
+    display:none;
+}
+
+.result-title{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.result-title h2{
+    margin:0;
+}
+
+.welcome-name{
+    color:#00ffff;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 0 8px rgba(0,255,255,.6);
+}
+
+.badge{
+    padding:7px 12px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    background:
+        rgba(0,255,255,.08);
+
+    border:
+        1px solid rgba(0,255,255,.25);
+
+    color:#00ffff;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:22px;
+}
+
+.stat{
+    text-align:center;
+
+    padding:17px 10px;
+
+    border-radius:15px;
+
+    background:
+        rgba(0,0,0,.22);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+}
+
+.stat-number{
+    display:block;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#00ffff;
+
+    text-shadow:
+        0 0 10px rgba(0,255,255,.6);
+}
+
+.stat-label{
+    margin-top:5px;
+
+    color:#8995bd;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   STREAK
+========================================================= */
+
+.streak{
+    padding:18px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,92,255,.12),
+            rgba(0,255,255,.06)
+        );
+
+    border:
+        1px solid rgba(124,92,255,.2);
+
+    margin-bottom:20px;
+}
+
+.streak-top{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.streak-number{
+    color:#fff;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.streak-icon{
+    font-size:30px;
+}
+
+
+/* =========================================================
+   REWARDS
+========================================================= */
+
+.rewards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.reward{
+    text-align:center;
+
+    padding:15px 8px;
+
+    border-radius:14px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(255,255,255,.025);
+
+    opacity:.4;
+
+    transition:.3s;
+}
+
+.reward.unlocked{
+    opacity:1;
+
+    border-color:
+        rgba(0,255,255,.3);
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,.08);
+}
+
+.reward-icon{
+    font-size:27px;
+
+    display:block;
+
+    margin-bottom:7px;
+}
+
+.reward-name{
+    font-size:11px;
+
+    color:#b7c1e0;
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.timer-box{
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,255,255,.08),
+            rgba(0,0,0,.2)
+        );
+
+    border:
+        1px solid rgba(0,255,255,.18);
+
+    box-shadow:
+        0 0 30px rgba(0,255,255,.05);
+
+    animation:
+        pulse 4s ease-in-out infinite;
+}
+
+.timer-label{
+    color:#8f9abd;
+
+    font-size:13px;
+}
+
+.timer{
+    font-size:
+        clamp(38px,8vw,65px);
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    color:#00ffff;
+
+    text-shadow:
+        0 0 8px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px rgba(0,255,255,.5);
+
+    margin:8px 0;
+}
+
+.next{
+    color:#aab5d6;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    position:relative;
+
+    margin-top:20px;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    right:16px;
+
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #00ffff,
+            #7c5cff,
+            transparent
+        );
+
+    opacity:.4;
+}
+
+.event{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+        90px 1fr;
+
+    gap:15px;
+
+    margin-bottom:14px;
+}
+
+.event-time{
+    color:#00ffff;
+
+    font-size:12px;
+
+    text-align:left;
+
+    padding-top:12px;
+}
+
+.event-card{
+    position:relative;
+
+    padding:13px 16px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.event-card::before{
+    content:"";
+
+    position:absolute;
+
+    right:-23px;
+
+    top:15px;
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#00ffff;
+
+    box-shadow:
+        0 0 8px #00ffff,
+        0 0 18px #00ffff;
+}
+
+.event-card:hover{
+    transform:translateX(-3px);
+
+    border-color:
+        rgba(0,255,255,.3);
+}
+
+.event-title{
+    font-weight:800;
+
+    margin-bottom:4px;
+}
+
+.event-sub{
+    color:#8793b9;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+    display:none;
+
+    text-align:center;
+
+    padding:35px;
+}
+
+.spinner{
+    width:45px;
+    height:45px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    border:
+        3px solid rgba(0,255,255,.15);
+
+    border-top-color:#00ffff;
+
+    animation:
+        spin 1s linear infinite;
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,.2);
+}
+
+.loader p{
+    color:#8e9abb;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+
+    padding:35px 15px 45px;
+
+    color:#657193;
+
+    font-size:13px;
+}
+
+.footer-name{
+    color:#00ffff;
+
+    font-weight:900;
+
+    text-shadow:
+        0 0 8px rgba(0,255,255,.5);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    nav{
+        padding:14px 4%;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .lang-btn{
+        padding:7px 10px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:50px 0 30px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .subjects{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+            1fr 1fr 1fr;
+    }
+
+    .rewards{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .card{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .event{
+        grid-template-columns:
+            65px 1fr;
+
+        gap:10px;
+    }
+
+    .event-time{
+        font-size:10px;
+    }
+
+    .timeline::before{
+        right:10px;
+    }
+
+    .event-card::before{
+        right:-17px;
+    }
+
+    .add-subject-btn{
+        width:100%;
+    }
+
+}
+
+
+/* =========================================================
+   LTR
+========================================================= */
+
+html[dir="ltr"] .timeline::before{
+    left:16px;
+    right:auto;
+}
+
+html[dir="ltr"] .event-card::before{
+    left:-23px;
+    right:auto;
+}
+
+html[dir="ltr"] .event-time{
+    text-align:right;
+}
+
+html[dir="ltr"] .card::before{
+    left:-100px;
+    right:auto;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-light light-one"></div>
+<div class="background-light light-two"></div>
+<div class="background-light light-three"></div>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        WE SCHOOL
+    </div>
+
+    <div class="nav-right">
+
+        <button
+            class="lang-btn active"
+            id="arBtn"
+            onclick="setLang('ar')">
+
+            عربي
+
+        </button>
+
+        <button
+            class="lang-btn"
+            id="enBtn"
+            onclick="setLang('en')">
+
+            EN
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1 id="heroTitle">
+            Welcome We School
+        </h1>
+
+        <p id="heroText">
+
+            رتّب يومك الدراسي، نظم وقتك،
+            وخلّي كل يوم خطوة جديدة للنجاح.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         PLANNER
+    ================================================== -->
+
+    <section class="card">
+
+        <h2 id="plannerTitle">
+            📚 خطط يومك
+        </h2>
+
+
+        <div class="grid">
+
+
+            <!-- NAME -->
+
+            <div class="field">
+
+                <label id="nameLabel">
+                    اسم الطالب
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="اكتب اسمك هنا"
+                    autocomplete="name">
+
+            </div>
+
+
+            <!-- WAKE -->
+
+            <div class="field">
+
+                <label id="wakeLabel">
+                    وقت الاستيقاظ
+                </label>
+
+                <input
+                    type="time"
+                    id="wake"
+                    value="06:30">
+
+            </div>
+
+
+            <!-- SCHOOL -->
+
+            <div class="field">
+
+                <label id="schoolLabel">
+                    بداية المدرسة
+                </label>
+
+                <input
+                    type="time"
+                    id="school"
+                    value="08:00">
+
+            </div>
+
+
+            <!-- RETURN -->
+
+            <div class="field">
+
+                <label id="returnLabel">
+                    وقت العودة
+                </label>
+
+                <input
+                    type="time"
+                    id="return"
+                    value="15:00">
+
+            </div>
+
+
+            <!-- SLEEP -->
+
+            <div class="field">
+
+                <label id="sleepLabel">
+                    وقت النوم
+                </label>
+
+                <input
+                    type="time"
+                    id="sleep"
+                    value="23:00">
+
+            </div>
+
+
+            <!-- STUDY -->
+
+            <div class="field">
+
+                <label id="studyLabel">
+                    وقت المذاكرة بعد المدرسة بالدقائق
+                </label>
+
+                <input
+                    type="number"
+                    id="study"
+                    value="120"
+                    min="0"
+                    max="600">
+
+            </div>
+
+
+            <!-- TRANSPORT -->
+
+            <div class="field">
+
+                <label id="transportLabel">
+                    وقت المواصلات بالدقائق
+                </label>
+
+                <input
+                    type="number"
+                    id="transport"
+                    value="30"
+                    min="0"
+                    max="180">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CUSTOM SUBJECTS
+        ================================================== -->
+
+        <h2
+            id="subjectsTitle"
+            style="margin-top:30px;">
+
+            📝 المواد
+
+        </h2>
+
+
+        <div class="subject-input-area">
+
+            <input
+                type="text"
+                id="newSubject"
+                class="subject-input"
+                placeholder="اكتب اسم المادة">
+
+            <button
+                type="button"
+                class="add-subject-btn"
+                onclick="addCustomSubject()">
+
+                ➕ إضافة مادة
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="subjects"
+            id="subjectsList">
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            class="main-btn"
+            id="createBtn"
+            onclick="makeSchedule()">
+
+            🚀 رتّب يومي
+
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         LOADER
+    ================================================== -->
+
+    <div
+        class="loader"
+        id="loader">
+
+        <div class="spinner"></div>
+
+        <p id="loaderText">
+            بنرتب يومك...
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         RESULT
+    ================================================== -->
+
+    <section
+        class="card"
+        id="result">
+
+
+        <div
+            class="welcome-name"
+            id="welcomeName">
+        </div>
+
+
+        <div class="result-title">
+
+            <h2 id="resultTitle">
+                ✨ جدولك جاهز
+            </h2>
+
+            <span
+                class="badge"
+                id="dateBadge">
+
+                اليوم
+
+            </span>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <span
+                    class="stat-number"
+                    id="totalEvents">
+
+                    0
+
+                </span>
+
+                <span
+                    class="stat-label"
+                    id="eventsLabel">
+
+                    نشاط
+
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span
+                    class="stat-number"
+                    id="totalStudy">
+
+                    0
+
+                </span>
+
+                <span
+                    class="stat-label"
+                    id="studyLabelResult">
+
+                    دقيقة مذاكرة
+
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span
+                    class="stat-number"
+                    id="subjectsCount">
+
+                    0
+
+                </span>
+
+                <span
+                    class="stat-label"
+                    id="subjectsLabel">
+
+                    مادة
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- STREAK -->
+
+        <div class="streak">
+
+            <div class="streak-top">
+
+                <div>
+
+                    <div
+                        class="streak-number"
+                        id="streakNumber">
+
+                        0 يوم
+
+                    </div>
+
+                    <div
+                        class="event-sub"
+                        id="streakText">
+
+                        استمر على نفس الحماس 🔥
+
+                    </div>
+
+                </div>
+
+                <div class="streak-icon">
+                    🔥
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- REWARDS -->
+
+        <h2 id="rewardsTitle">
+            🏆 مكافآتك
+        </h2>
+
+        <div
+            class="rewards"
+            id="rewards">
+        </div>
+
+
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+            <div
+                class="timer-label"
+                id="currentLabel">
+
+                النشاط الحالي
+
+            </div>
+
+            <div
+                class="timer"
+                id="timer">
+
+                --:--
+
+            </div>
+
+            <div
+                class="next"
+                id="next">
+
+                --
+
+            </div>
+
+        </div>
+
+
+        <!-- TIMELINE -->
+
+        <h2
+            id="timelineTitle"
+            style="margin-top:30px;">
+
+            🗓️ جدول اليوم
+
+        </h2>
+
+        <div
+            class="timeline"
+            id="timeline">
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        Made with focus &amp; ambition
+    </div>
+
+    <div style="margin-top:8px;">
+
+        <span class="footer-name">
+            Ahmed Waleed
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   ELEMENT HELPER
+========================================================= */
+
+const $ = id =>
+    document.getElementById(id);
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+let events = [];
+
+let timer = null;
+
+let lang = "ar";
+
+
+/* =========================================================
+   REWARDS
+========================================================= */
+
+const rewards = [
+
+    {
+        days:1,
+        icon:"🌱",
+        ar:"أول يوم",
+        en:"First Day"
+    },
+
+    {
+        days:3,
+        icon:"🔥",
+        ar:"3 أيام",
+        en:"3 Days"
+    },
+
+    {
+        days:7,
+        icon:"⚡",
+        ar:"أسبوع كامل",
+        en:"One Week"
+    },
+
+    {
+        days:14,
+        icon:"🏆",
+        ar:"أسبوعين",
+        en:"Two Weeks"
+    },
+
+    {
+        days:30,
+        icon:"👑",
+        ar:"30 يوم",
+        en:"30 Days"
+    },
+
+    {
+        days:60,
+        icon:"💎",
+        ar:"60 يوم",
+        en:"60 Days"
+    },
+
+    {
+        days:100,
+        icon:"🚀",
+        ar:"100 يوم",
+        en:"100 Days"
+    },
+
+    {
+        days:365,
+        icon:"🌟",
+        ar:"سنة كاملة",
+        en:"One Year"
+    }
+
+];
+
+
+/* =========================================================
+   LOCAL STORAGE
+========================================================= */
+
+let savedData =
+    JSON.parse(
+        localStorage.getItem("wwSchool") || "{}"
+    );
+
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+function today(){
+
+    const d = new Date();
+
+    return (
+
+        d.getFullYear() +
+
+        "-" +
+
+        String(
+            d.getMonth()+1
+        ).padStart(2,"0") +
+
+        "-" +
+
+        String(
+            d.getDate()
+        ).padStart(2,"0")
+
+    );
+
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function save(){
+
+    localStorage.setItem(
+        "wwSchool",
+        JSON.stringify(savedData)
+    );
+
+}
+
+
+/* =========================================================
+   STUDENT NAME
+========================================================= */
+
+function saveStudentName(){
+
+    savedData.studentName =
+        $("studentName")
+            .value
+            .trim();
+
+    save();
+
+}
+
+
+function loadStudentName(){
+
+    if(
+        savedData.studentName
+    ){
+
+        $("studentName").value =
+            savedData.studentName;
+
+    }
+
+}
+
+
+$("studentName")
+    .addEventListener(
+        "input",
+        saveStudentName
+    );
+
+
+/* =========================================================
+   CUSTOM SUBJECTS
+========================================================= */
+
+let customSubjects =
+    savedData.subjects || [];
+
+
+/* =========================================================
+   SAVE SUBJECTS
+========================================================= */
+
+function saveSubjects(){
+
+    savedData.subjects =
+        customSubjects;
+
+    save();
+
+}
+
+
+/* =========================================================
+   RENDER SUBJECTS
+========================================================= */
+
+function renderSubjects(){
+
+    const list =
+        $("subjectsList");
+
+    list.innerHTML = "";
+
+
+    customSubjects.forEach(
+        (subject,index) => {
+
+            const label =
+                document.createElement(
+                    "label"
+                );
+
+            label.className =
+                "subject";
+
+
+            label.innerHTML = `
+
+                <input
+                    type="checkbox"
+                    value="${escapeHtml(subject)}"
+                    checked>
+
+                <span>
+                    ${escapeHtml(subject)}
+                </span>
+
+                <button
+                    type="button"
+                    class="delete-subject"
+                    onclick="removeCustomSubject(${index})"
+                    title="حذف المادة">
+
+                    🗑️
+
+                </button>
+
+            `;
+
+
+            list.appendChild(
+                label
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   ADD SUBJECT
+========================================================= */
+
+function addCustomSubject(){
+
+    const input =
+        $("newSubject");
+
+    const name =
+        input.value.trim();
+
+
+    if(!name){
+
+        alert(
+
+            lang === "ar"
+
+                ? "اكتب اسم المادة أولاً"
+
+                : "Enter the subject name first"
+
+        );
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    const exists =
+        customSubjects.some(
+            subject =>
+                subject.toLowerCase() ===
+                name.toLowerCase()
+        );
+
+
+    if(exists){
+
+        alert(
+
+            lang === "ar"
+
+                ? "المادة موجودة بالفعل"
+
+                : "This subject already exists"
+
+        );
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    customSubjects.push(name);
+
+    saveSubjects();
+
+    renderSubjects();
+
+    input.value = "";
+
+    input.focus();
+
+}
+
+
+/* =========================================================
+   REMOVE SUBJECT
+========================================================= */
+
+function removeCustomSubject(index){
+
+    const subject =
+        customSubjects[index];
+
+
+    const confirmDelete =
+        confirm(
+
+            lang === "ar"
+
+                ? `هل تريد حذف مادة "${subject}"؟`
+
+                : `Delete "${subject}"?`
+
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    customSubjects.splice(
+        index,
+        1
+    );
+
+    saveSubjects();
+
+    renderSubjects();
+
+}
+
+
+/* =========================================================
+   ENTER TO ADD SUBJECT
+========================================================= */
+
+$("newSubject")
+    .addEventListener(
+        "keydown",
+        function(e){
+
+            if(
+                e.key === "Enter"
+            ){
+
+                e.preventDefault();
+
+                addCustomSubject();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   STREAK
+========================================================= */
+
+function getStreak(){
+
+    const history =
+        savedData.history || [];
+
+
+    if(!history.length){
+
+        return 0;
+
+    }
+
+
+    let streak = 0;
+
+    const current =
+        new Date();
+
+
+    for(
+        let i=0;
+        i<1000;
+        i++
+    ){
+
+        const d =
+            new Date(current);
+
+
+        d.setDate(
+            current.getDate() - i
+        );
+
+
+        const key =
+
+            d.getFullYear() +
+
+            "-" +
+
+            String(
+                d.getMonth()+1
+            ).padStart(2,"0") +
+
+            "-" +
+
+            String(
+                d.getDate()
+            ).padStart(2,"0");
+
+
+        if(
+            history.includes(key)
+        ){
+
+            streak++;
+
+        }else{
+
+            if(i === 0){
+
+                continue;
+
+            }
+
+            break;
+
+        }
+
+    }
+
+
+    return streak;
+
+}
+
+
+/* =========================================================
+   RENDER REWARDS
+========================================================= */
+
+function renderRewards(){
+
+    const container =
+        $("rewards");
+
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    const streak =
+        getStreak();
+
+
+    container.innerHTML = "";
+
+
+    rewards.forEach(
+        reward => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "reward " +
+                (
+                    streak >= reward.days
+                        ? "unlocked"
+                        : ""
+                );
+
+
+            div.innerHTML = `
+
+                <span class="reward-icon">
+                    ${reward.icon}
+                </span>
+
+                <span class="reward-name">
+
+                    ${
+                        lang === "ar"
+                            ? reward.ar
+                            : reward.en
+                    }
+
+                </span>
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    $("streakNumber")
+        .textContent =
+
+        lang === "ar"
+
+            ? `${streak} يوم`
+
+            : `${streak} days`;
+
+}
+
+
+/* =========================================================
+   COMPLETE DAY
+========================================================= */
+
+function completeDay(){
+
+    const key =
+        today();
+
+
+    if(
+        !savedData.history
+    ){
+
+        savedData.history = [];
+
+    }
+
+
+    if(
+        !savedData.history.includes(key)
+    ){
+
+        savedData.history.push(key);
+
+        save();
+
+    }
+
+
+    renderRewards();
+
+}
+
+
+/* =========================================================
+   MINUTES
+========================================================= */
+
+function minutes(time){
+
+    const parts =
+        time.split(":");
+
+
+    return (
+
+        parseInt(
+            parts[0],
+            10
+        ) * 60
+
+        +
+
+        parseInt(
+            parts[1],
+            10
+        )
+
+    );
+
+}
+
+
+/* =========================================================
+   CLOCK
+========================================================= */
+
+function clock(total){
+
+    total =
+        (
+            (total % 1440)
+            +
+            1440
+        )
+        % 1440;
+
+
+    const h =
+        Math.floor(
+            total / 60
+        );
+
+
+    const m =
+        total % 60;
+
+
+    return (
+
+        String(h)
+            .padStart(2,"0")
+
+        +
+
+        ":"
+
+        +
+
+        String(m)
+            .padStart(2,"0")
+
+    );
+
+}
+
+
+/* =========================================================
+   ADD EVENT
+========================================================= */
+
+function addEvent(
+    start,
+    end,
+    title,
+    sub=""
+){
+
+    events.push({
+
+        start,
+        end,
+        title,
+        sub
+
+    });
+
+}
+
+
+/* =========================================================
+   MAKE SCHEDULE
+========================================================= */
+
+function makeSchedule(){
+
+    saveStudentName();
+
+
+    $("loader")
+        .style.display =
+        "block";
+
+
+    $("result")
+        .style.display =
+        "none";
+
+
+    if(timer){
+
+        clearInterval(timer);
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            events = [];
+
+
+            const wake =
+                minutes(
+                    $("wake").value
+                );
+
+
+            const school =
+                minutes(
+                    $("school").value
+                );
+
+
+            const returnTime =
+                minutes(
+                    $("return").value
+                );
+
+
+            const sleep =
+                minutes(
+                    $("sleep").value
+                );
+
+
+            const studyMinutes =
+                parseInt(
+                    $("study").value || 0,
+                    10
+                );
+
+
+            const transport =
+                parseInt(
+                    $("transport").value || 0,
+                    10
+                );
+
+
+            /* NAME */
+
+            const name =
+                $("studentName")
+                    .value
+                    .trim();
+
+
+            $("welcomeName")
+                .textContent =
+
+                name
+
+                    ?
+
+                (
+                    lang === "ar"
+
+                        ?
+
+                    `أهلاً يا ${name} 👋`
+
+                        :
+
+                    `Welcome, ${name} 👋`
+                )
+
+                    :
+
+                "";
+
+
+            /* WAKE */
+
+            addEvent(
+
+                wake,
+                wake + 20,
+
+                lang === "ar"
+                    ? "🌅 الاستيقاظ والاستعداد"
+                    : "🌅 Wake up & prepare",
+
+                lang === "ar"
+                    ? "غسيل، فطار وتجهيز للمدرسة"
+                    : "Wash, breakfast and prepare"
+
+            );
+
+
+            let t =
+                wake + 20;
+
+
+            /* MORNING STUDY */
+
+            const morningStudy =
+
+                Math.max(
+
+                    0,
+
+                    Math.min(
+
+                        30,
+
+                        school -
+                        t -
+                        transport
+
+                    )
+
+                );
+
+
+            if(
+                morningStudy > 0
+            ){
+
+                addEvent(
+
+                    t,
+                    t + morningStudy,
+
+                    lang === "ar"
+                        ? "📖 مراجعة سريعة"
+                        : "📖 Quick review",
+
+                    lang === "ar"
+                        ? "راجع أهم النقاط قبل المدرسة"
+                        : "Review the important points"
+
+                );
+
+
+                t +=
+                    morningStudy;
+
+            }
+
+
+            /* SCHOOL TRANSPORT */
+
+            const schoolTransport =
+
+                Math.min(
+
+                    transport,
+
+                    Math.max(
+                        0,
+                        school - t
+                    )
+
+                );
+
+
+            if(
+                schoolTransport > 0
+            ){
+
+                addEvent(
+
+                    t,
+                    t + schoolTransport,
+
+                    lang === "ar"
+                        ? "🚌 الذهاب للمدرسة"
+                        : "🚌 Going to school",
+
+                    lang === "ar"
+                        ? "استغل الطريق في الاستماع أو المراجعة"
+                        : "Use the trip for listening or review"
+
+                );
+
+
+                t +=
+                    schoolTransport;
+
+            }
+
+
+            /* SCHOOL */
+
+            if(
+                t < school
+            ){
+
+                t = school;
+
+            }
+
+
+            if(
+                returnTime > t
+            ){
+
+                addEvent(
+
+                    school,
+                    returnTime,
+
+                    lang === "ar"
+                        ? "🏫 المدرسة"
+                        : "🏫 School",
+
+                    lang === "ar"
+                        ? "ركز في الحصص وخد ملاحظات"
+                        : "Focus in class and take notes"
+
+                );
+
+
+                t =
+                    returnTime;
+
+            }
+
+
+            /* RETURN */
+
+            const returnTransport =
+
+                Math.min(
+
+                    transport,
+
+                    Math.max(
+                        0,
+                        sleep - t
+                    )
+
+                );
+
+
+            if(
+                returnTransport > 0
+            ){
+
+                addEvent(
+
+                    t,
+                    t + returnTransport,
+
+                    lang === "ar"
+                        ? "🚌 الرجوع للبيت"
+                        : "🚌 Going home",
+
+                    lang === "ar"
+                        ? "وقت للراحة بعد اليوم الدراسي"
+                        : "Time to relax after school"
+
+                );
+
+
+                t +=
+                    returnTransport;
+
+            }
+
+
+            /* REST */
+
+            const rest =
+
+                Math.min(
+
+                    60,
+
+                    Math.max(
+                        20,
+                        sleep -
+                        t -
+                        studyMinutes
+                    )
+
+                );
+
+
+            if(
+                rest > 0
+            ){
+
+                addEvent(
+
+                    t,
+                    t + rest,
+
+                    lang === "ar"
+                        ? "🍽️ غداء وراحة"
+                        : "🍽️ Lunch & rest",
+
+                    lang === "ar"
+                        ? "كل واشحن طاقتك"
+                        : "Eat and recharge"
+
+                );
+
+
+                t +=
+                    rest;
+
+            }
+
+
+            /* SELECTED SUBJECTS */
+
+            const selectedSubjects =
+
+                Array.from(
+
+                    document.querySelectorAll(
+                        "#subjectsList input[type='checkbox']:checked"
+                    )
+
+                ).map(
+                    input =>
+                        input.value
+                );
+
+
+            let remainingStudy =
+
+                Math.min(
+
+                    studyMinutes,
+
+                    Math.max(
+                        0,
+                        sleep -
+                        t -
+                        30
+                    )
+
+                );
+
+
+            /* STUDY */
+
+            if(
+                remainingStudy > 0
+            ){
+
+                if(
+                    selectedSubjects.length
+                ){
+
+                    let perSubject =
+
+                        Math.floor(
+
+                            remainingStudy /
+                            selectedSubjects.length
+
+                        );
+
+
+                    perSubject =
+                        Math.max(
+                            15,
+                            perSubject
+                        );
+
+
+                    selectedSubjects.forEach(
+
+                        (subject,index) => {
+
+                            if(
+                                t >= sleep ||
+                                remainingStudy <= 0
+                            ){
+
+                                return;
+
+                            }
+
+
+                            let duration =
+
+                                index ===
+                                selectedSubjects.length - 1
+
+                                    ?
+
+                                remainingStudy
+
+                                    :
+
+                                Math.min(
+                                    perSubject,
+                                    remainingStudy
+                                );
+
+
+                            duration =
+
+                                Math.min(
+                                    duration,
+                                    sleep - t
+                                );
+
+
+                            if(
+                                duration <= 0
+                            ){
+
+                                return;
+
+                            }
+
+
+                            addEvent(
+
+                                t,
+                                t + duration,
+
+                                `📚 ${subject}`,
+
+                                lang === "ar"
+                                    ? "جلسة مذاكرة مركزة"
+                                    : "Focused study session"
+
+                            );
+
+
+                            t +=
+                                duration;
+
+
+                            remainingStudy -=
+                                duration;
+
+                        }
+
+                    );
+
+                }else{
+
+                    addEvent(
+
+                        t,
+                        t + remainingStudy,
+
+                        lang === "ar"
+                            ? "📚 مذاكرة"
+                            : "📚 Study",
+
+                        lang === "ar"
+                            ? "جلسة مذاكرة مركزة"
+                            : "Focused study session"
+
+                    );
+
+
+                    t +=
+                        remainingStudy;
+
+                }
+
+            }
+
+
+            /* FREE TIME */
+
+            if(
+                t < sleep
+            ){
+
+                addEvent(
+
+                    t,
+                    sleep,
+
+                    lang === "ar"
+                        ? "🎮 وقت حر وتجهيز للنوم"
+                        : "🎮 Free time & prepare for sleep",
+
+                    lang === "ar"
+                        ? "استرخِ وجهز نفسك لليوم التالي"
+                        : "Relax and prepare for tomorrow"
+
+                );
+
+            }
+
+
+            /* SAVE */
+
+            saveSettings();
+
+
+            /* RENDER */
+
+            renderTimeline();
+
+
+            $("totalEvents")
+                .textContent =
+                events.length;
+
+
+            $("totalStudy")
+                .textContent =
+                studyMinutes;
+
+
+            $("subjectsCount")
+                .textContent =
+                selectedSubjects.length;
+
+
+            $("dateBadge")
+                .textContent =
+                today();
+
+
+            completeDay();
+
+
+            $("loader")
+                .style.display =
+                "none";
+
+
+            $("result")
+                .style.display =
+                "block";
+
+
+            $("result")
+                .scrollIntoView({
+
+                    behavior:"smooth",
+                    block:"start"
+
+                });
+
+
+            updateTimer();
+
+
+            timer =
+                setInterval(
+                    updateTimer,
+                    1000
+                );
+
+
+        },
+        700
+    );
+
+}
+
+
+/* =========================================================
+   RENDER TIMELINE
+========================================================= */
+
+function renderTimeline(){
+
+    const timeline =
+        $("timeline");
+
+
+    timeline.innerHTML = "";
+
+
+    events.forEach(
+
+        event => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "event";
+
+
+            div.innerHTML = `
+
+                <div class="event-time">
+
+                    ${clock(event.start)}
+
+                </div>
+
+                <div class="event-card">
+
+                    <div class="event-title">
+
+                        ${event.title}
+
+                    </div>
+
+                    <div class="event-sub">
+
+                        ${event.sub}
+
+                    </div>
+
+                    <div
+                        class="event-sub"
+                        style="margin-top:5px;">
+
+                        ${clock(event.start)}
+                        -
+                        ${clock(event.end)}
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            timeline.appendChild(div);
+
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function updateTimer(){
+
+    if(
+        !events.length
+    ){
+
+        return;
+
+    }
+
+
+    const now =
+        new Date();
+
+
+    const currentMinutes =
+
+        now.getHours() * 60 +
+        now.getMinutes();
+
+
+    const currentSeconds =
+        now.getSeconds();
+
+
+    let active =
+        null;
+
+
+    let nextEvent =
+        null;
+
+
+    for(
+        let i=0;
+        i<events.length;
+        i++
+    ){
+
+        const event =
+            events[i];
+
+
+        if(
+
+            currentMinutes >= event.start
+
+            &&
+
+            currentMinutes < event.end
+
+        ){
+
+            active =
+                event;
+
+
+            nextEvent =
+                events[i+1] || null;
+
+
+            break;
+
+        }
+
+
+        if(
+            event.start >
+            currentMinutes
+        ){
+
+            nextEvent =
+                event;
+
+            break;
+
+        }
+
+    }
+
+
+    if(active){
+
+        const remaining =
+
+            active.end * 60
+
+            -
+
+            (
+                currentMinutes * 60
+                +
+                currentSeconds
+            );
+
+
+        const mins =
+            Math.floor(
+                remaining / 60
+            );
+
+
+        const secs =
+            remaining % 60;
+
+
+        $("timer")
+            .textContent =
+
+            String(
+                Math.max(0,mins)
+            ).padStart(2,"0")
+
+            +
+
+            ":"
+
+            +
+
+            String(
+                Math.max(0,secs)
+            ).padStart(2,"0");
+
+
+        $("currentLabel")
+            .textContent =
+            active.title;
+
+
+        $("next")
+            .textContent =
+
+            nextEvent
+
+                ?
+
+            (
+
+                lang === "ar"
+
+                    ?
+
+                `التالي: ${nextEvent.title} الساعة ${clock(nextEvent.start)}`
+
+                    :
+
+                `Next: ${nextEvent.title} at ${clock(nextEvent.start)}`
+
+            )
+
+                :
+
+            (
+
+                lang === "ar"
+
+                    ?
+
+                "خلصت كل المهام 🎉"
+
+                    :
+
+                "All tasks completed 🎉"
+
+            );
+
+    }else{
+
+        $("timer")
+            .textContent =
+            "--:--";
+
+
+        if(nextEvent){
+
+            $("currentLabel")
+                .textContent =
+
+                lang === "ar"
+                    ? "النشاط القادم"
+                    : "Next activity";
+
+
+            $("next")
+                .textContent =
+
+                lang === "ar"
+
+                    ?
+
+                `${nextEvent.title} الساعة ${clock(nextEvent.start)}`
+
+                    :
+
+                `${nextEvent.title} at ${clock(nextEvent.start)}`;
+
+        }else{
+
+            $("currentLabel")
+                .textContent =
+
+                lang === "ar"
+                    ? "لا يوجد نشاط الآن"
+                    : "No activity now";
+
+
+            $("next")
+                .textContent =
+
+                lang === "ar"
+                    ? "استمتع بوقتك ✨"
+                    : "Enjoy your time ✨";
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE SETTINGS
+========================================================= */
+
+function saveSettings(){
+
+    savedData.settings = {
+
+        wake:
+            $("wake").value,
+
+        school:
+            $("school").value,
+
+        returnTime:
+            $("return").value,
+
+        sleep:
+            $("sleep").value,
+
+        study:
+            $("study").value,
+
+        transport:
+            $("transport").value
+
+    };
+
+
+    save();
+
+}
+
+
+/* =========================================================
+   LOAD SAVED SETTINGS
+========================================================= */
+
+function loadSaved(){
+
+    if(
+        savedData.settings
+    ){
+
+        const s =
+            savedData.settings;
+
+
+        if(s.wake)
+            $("wake").value =
+                s.wake;
+
+
+        if(s.school)
+            $("school").value =
+                s.school;
+
+
+        if(s.returnTime)
+            $("return").value =
+                s.returnTime;
+
+
+        if(s.sleep)
+            $("sleep").value =
+                s.sleep;
+
+
+        if(
+            s.study !== undefined
+        )
+            $("study").value =
+                s.study;
+
+
+        if(
+            s.transport !== undefined
+        )
+            $("transport").value =
+                s.transport;
+
+    }
+
+
+    loadStudentName();
+
+}
+
+
+/* =========================================================
+   AUTO SAVE SETTINGS
+========================================================= */
+
+[
+    "wake",
+    "school",
+    "return",
+    "sleep",
+    "study",
+    "transport"
+]
+.forEach(
+
+    id => {
+
+        $(id)
+            .addEventListener(
+                "change",
+                saveSettings
+            );
+
+    }
+
+);
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function setLang(language){
+
+    lang =
+        language;
+
+
+    document.documentElement.lang =
+        language;
+
+
+    document.documentElement.dir =
+
+        language === "ar"
+            ? "rtl"
+            : "ltr";
+
+
+    $("arBtn")
+        .classList.toggle(
+            "active",
+            language === "ar"
+        );
+
+
+    $("enBtn")
+        .classList.toggle(
+            "active",
+            language === "en"
+        );
+
+
+    if(
+        language === "ar"
+    ){
+
+        $("heroTitle")
+            .textContent =
+            "Welcome We School";
+
+
+        $("heroText")
+            .textContent =
+            "رتّب يومك الدراسي، نظم وقتك، وخلّي كل يوم خطوة جديدة للنجاح.";
+
+
+        $("plannerTitle")
+            .textContent =
+            "📚 خطط يومك";
+
+
+        $("nameLabel")
+            .textContent =
+            "اسم الطالب";
+
+
+        $("studentName")
+            .placeholder =
+            "اكتب اسمك هنا";
+
+
+        $("wakeLabel")
+            .textContent =
+            "وقت الاستيقاظ";
+
+
+        $("schoolLabel")
+            .textContent =
+            "بداية المدرسة";
+
+
+        $("returnLabel")
+            .textContent =
+            "وقت العودة";
+
+
+        $("sleepLabel")
+            .textContent =
+            "وقت النوم";
+
+
+        $("studyLabel")
+            .textContent =
+            "وقت المذاكرة بعد المدرسة بالدقائق";
+
+
+        $("transportLabel")
+            .textContent =
+            "وقت المواصلات بالدقائق";
+
+
+        $("subjectsTitle")
+            .textContent =
+            "📝 المواد";
+
+
+        $("newSubject")
+            .placeholder =
+            "اكتب اسم المادة";
+
+
+        document.querySelector(
+            ".add-subject-btn"
+        ).textContent =
+            "➕ إضافة مادة";
+
+
+        $("createBtn")
+            .textContent =
+            "🚀 رتّب يومي";
+
+
+        $("loaderText")
+            .textContent =
+            "بنرتب يومك...";
+
+
+        $("resultTitle")
+            .textContent =
+            "✨ جدولك جاهز";
+
+
+        $("eventsLabel")
+            .textContent =
+            "نشاط";
+
+
+        $("studyLabelResult")
+            .textContent =
+            "دقيقة مذاكرة";
+
+
+        $("subjectsLabel")
+            .textContent =
+            "مادة";
+
+
+        $("streakText")
+            .textContent =
+            "استمر على نفس الحماس 🔥";
+
+
+        $("rewardsTitle")
+            .textContent =
+            "🏆 مكافآتك";
+
+
+        $("timelineTitle")
+            .textContent =
+            "🗓️ جدول اليوم";
+
+    }else{
+
+        $("heroTitle")
+            .textContent =
+            "Welcome We School";
+
+
+        $("heroText")
+            .textContent =
+            "Organize your school day, manage your time, and make every day a step forward.";
+
+
+        $("plannerTitle")
+            .textContent =
+            "📚 Plan Your Day";
+
+
+        $("nameLabel")
+            .textContent =
+            "Student Name";
+
+
+        $("studentName")
+            .placeholder =
+            "Enter your name";
+
+
+        $("wakeLabel")
+            .textContent =
+            "Wake up time";
+
+
+        $("schoolLabel")
+            .textContent =
+            "School starts";
+
+
+        $("returnLabel")
+            .textContent =
+            "Return time";
+
+
+        $("sleepLabel")
+            .textContent =
+            "Sleep time";
+
+
+        $("studyLabel")
+            .textContent =
+            "After-school study time in minutes";
+
+
+        $("transportLabel")
+            .textContent =
+            "Transportation time in minutes";
+
+
+        $("subjectsTitle")
+            .textContent =
+            "📝 Subjects";
+
+
+        $("newSubject")
+            .placeholder =
+            "Enter subject name";
+
+
+        document.querySelector(
+            ".add-subject-btn"
+        ).textContent =
+            "➕ Add Subject";
+
+
+        $("createBtn")
+            .textContent =
+            "🚀 Plan My Day";
+
+
+        $("loaderText")
+            .textContent =
+            "Organizing your day...";
+
+
+        $("resultTitle")
+            .textContent =
+            "✨ Your schedule is ready";
+
+
+        $("eventsLabel")
+            .textContent =
+            "Activities";
+
+
+        $("studyLabelResult")
+            .textContent =
+            "Study minutes";
+
+
+        $("subjectsLabel")
+            .textContent =
+            "Subjects";
+
+
+        $("streakText")
+            .textContent =
+            "Keep the momentum going 🔥";
+
+
+        $("rewardsTitle")
+            .textContent =
+            "🏆 Your Rewards";
+
+
+        $("timelineTitle")
+            .textContent =
+            "🗓️ Today's Schedule";
+
+    }
+
+
+    renderSubjects();
+
+    renderRewards();
+
+
+    if(
+        $("result").style.display === "block"
+    ){
+
+        const name =
+            $("studentName")
+                .value
+                .trim();
+
+
+        $("welcomeName")
+            .textContent =
+
+            name
+
+                ?
+
+            (
+                lang === "ar"
+                    ? `أهلاً يا ${name} 👋`
+                    : `Welcome, ${name} 👋`
+            )
+
+                :
+
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadSaved();
+
+renderSubjects();
+
+renderRewards();
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+document.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(
+            e.key === "Enter"
+        ){
+
+            const active =
+                document.activeElement;
+
+
+            if(
+
+                active
+
+                &&
+
+                (
+
+                    active.tagName ===
+                    "INPUT"
+
+                    ||
+
+                    active.tagName ===
+                    "SELECT"
+
+                )
+
+                &&
+
+                active.id !==
+                "newSubject"
+
+            ){
+
+                makeSchedule();
+
+            }
+
+        }
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>
+<meta name="google-site-verification" content="ztUv_Uo2KokAoD4xDQDH2bHb4DbSSvj_HCZI-UPD4zI" />
